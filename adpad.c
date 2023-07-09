@@ -57,9 +57,6 @@ int main(void) {
       previous = current;
     } else if ((c = getkey()) != '\0') {
 
-      printf("%d\n", c);
-      printf("\n");
-
       if (c == 27) {
         c = getkey();
         if (c == 91) {
