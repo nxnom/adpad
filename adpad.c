@@ -56,6 +56,10 @@ int main(void) {
     if (current != previous) {
       previous = current;
     } else if ((c = getkey()) != '\0') {
+
+      printf("%d\n", c);
+      printf("\n");
+
       if (c == 27) {
         c = getkey();
         if (c == 91) {
@@ -70,12 +74,14 @@ int main(void) {
             system("adb shell input keyevent 21");
           }
         }
-      } else if (c == 10) {
+      } else if (c == 10) { // Enter Key
         system("adb shell input keyevent 66");
-      } else if (c == 127) {
+      } else if (c == 127) { // Backspace
         system("adb shell input keyevent 67");
-      } else if (c == 32) {
+      } else if (c == 32) { // Space
         system("adb shell input keyevent 62");
+      } else if (c == 96) { // Escape
+        system("adb shell input keyevent 4"); // Back Button
       } else {
         char command[100];
         sprintf(command, "adb shell input text '%c'", c);
